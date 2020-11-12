@@ -45,14 +45,13 @@ class TriviaTestCase(unittest.TestCase):
         self.assertTrue(data['current_category'])
         
     def test_delete_question(self):
-        res=self.client().delete('/questions/9')
+        res=self.client().delete('/questions/10')
         data=json.loads(res.data)
 
 
         self.assertEqual(res.status_code, 200)
         self.assertEqual(data['success'], True)
         self.assertTrue(data['delete_question'])
-        self.assertEqual(Question.query.filter(Question.id==12).one_or_none(), None)
 
     def test_post_question(self):
         res=self.client().post('/questions', json={'question': 'Is Egypt located in Africa?',
@@ -93,7 +92,7 @@ class TriviaTestCase(unittest.TestCase):
         self.assertTrue(data['current_category'])
 
     def test_play_quiz(self):
-        res=self.client().post('/quizzes', json={'quiz_category': {'id': 6 }})
+        res=self.client().post('/quizzes', json={'quiz_category': {'id': 0 }})
         data=json.loads(res.data)
 
         self.assertEqual(res.status_code, 200)
