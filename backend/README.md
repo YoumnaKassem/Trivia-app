@@ -54,8 +54,10 @@ GET '/questions'
 -Request Arguments: 'page' to choose page number, the default value is 1
 -Returns: A list of question objects, success value, No. of total questions, dictionary of categories in which the keys are the ids and the value is the corresponding string of the category, and a list of categories.
 -Results are paginated in group of 10. 
+
 {
 "questions":[{
+
   'id': 1,
   'question': 'Is Egypt located in Africa?',
   'answer': 'yes',
@@ -82,6 +84,7 @@ DELETE '/questions/<int:question_id>'
 -Delete a particular question based on a given question id.
 -Request argument: question_id
 -Returns success value.
+
 {
 "success":True
 }
@@ -93,6 +96,7 @@ POST '/questions'
 -Create a new question using a submitted question,answer, current category and level of difficultey.
 -Request argument: None
 -Returns success value.
+
 {
   "success":True
 }
@@ -104,6 +108,7 @@ POST '/questions/search'
 -search for questions that contain any part of search term.
 -Request argument: None
 -Return list of questions that contain search using a submitted search button, success value, number of questions, and current categories.
+
 {
 "success":True,
 "questions":[{
